@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camara</title>
+</head>
+
+<body>
+    <!-- Aquí el video embebido de la webcam -->
+    <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+    </div>
+    
+    <!-- Botón de captura -->
+    <div class="controller">
+        <button id="snap">Capture</button>
+    </div>
+    
+    <!-- El elemento canvas -->
+    <span><div></div></span>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script src="foto1.js"></script>
+</body>
+
+</html>
