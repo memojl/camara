@@ -10,7 +10,7 @@ const constraints = {
     video: {
         width: 640,
         height: 480,
-        facingMode: 'user',
+        facingMode: 'environment',
         /*facingMode: {
             exact: 'environment'
         }*/
