@@ -5,7 +5,7 @@ const snap = document.getElementById("snap");
 const canvas = document.getElementById('canvas');
 const errorMsgElement = document.querySelector('span#errorMsg');
 
-let sel = 0;
+let sel = 1;
 let mode = (sel == 1) ? 'environment' : 'user';
 
 const constraints = {
@@ -39,5 +39,5 @@ init();
 // Dibuja la imagen
 var context = canvas.getContext('2d');
 snap.addEventListener("click", function () {
-    context.drawImage(video, 0, 0, 640, 480);
+    context.drawImage(video, 0, 0, 540, 580);
 });
