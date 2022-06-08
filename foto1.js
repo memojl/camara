@@ -14,7 +14,7 @@ const constraints = {
         width: 640,
         height: 480,
         facingMode: {
-            exact: mode
+            exact: 'environment'
         }
     }
 };
