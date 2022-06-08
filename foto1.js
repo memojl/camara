@@ -6,17 +6,16 @@ const canvas = document.getElementById('canvas');
 const errorMsgElement = document.querySelector('span#errorMsg');
 
 let sel = 0;
-let mode = (sel==1)?'environment':'user';
+let mode = (sel == 1) ? 'environment' : 'user';
 
 const constraints = {
     audio: false,
     video: {
         width: 640,
         height: 480,
-        facingMode: mode,
-        /*facingMode: {
-            exact: 'environment'
-        }*/
+        facingMode: {
+            exact: mode
+        }
     }
 };
 
