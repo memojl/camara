@@ -6,29 +6,36 @@ const canvas = document.getElementById('canvas');
 const errorMsgElement = document.querySelector('span#errorMsg');
 
 const constraints = {
-audio: false,
-video: {width: 640, height: 480}
+    audio: false,
+    video: {
+        width: 640,
+        height: 480,
+        facingMode: 'user',
+        /*facingMode: {
+            exact: 'environment'
+        }*/
+    }
 };
 
 // Acceso a la webcam
 async function init() {
-try {
-const stream = await navigator.mediaDevices.getUserMedia(constraints);
-handleSuccess(stream);
-} catch (e) {
-let msg=`navigator.getUserMedia error:${e.toString()}`;console.log(msg);
-//errorMsgElement.innerHTML = msg;
-}
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        handleSuccess(stream);
+    } catch (e) {
+        let msg = `navigator.getUserMedia error:${e.toString()}`; console.log(msg);
+        //errorMsgElement.innerHTML = msg;
+    }
 }
 // Correcto!
 function handleSuccess(stream) {
-window.stream = stream;
-video.srcObject = stream;
+    window.stream = stream;
+    video.srcObject = stream;
 }
 // Load init
 init();
 // Dibuja la imagen
 var context = canvas.getContext('2d');
-snap.addEventListener("click", function() {
-context.drawImage(video, 0, 0, 640, 480);
+snap.addEventListener("click", function () {
+    context.drawImage(video, 0, 0, 640, 480);
 });
