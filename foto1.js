@@ -5,11 +5,11 @@ const snap = document.getElementById("snap");
 const canvas = document.getElementById('canvas');
 const errorMsgElement = document.querySelector('span#errorMsg');
 
-let sel = 1;
-let mode = (sel == 1) ? 'environment' : 'user';
+//0-->Frontal-->user
+//1-->Trasera-->environment
 
-//environment-->Trasera
-//user-->Frontal
+let sel = 0;
+const mode = (sel == 1) ? 'environment' : 'user';
 
 const constraints = {
     audio: false,
@@ -17,7 +17,7 @@ const constraints = {
         width: 640,
         height: 480,
         facingMode: {
-            exact: 'environment'
+            exact: mode
         }
     }
 };
