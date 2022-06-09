@@ -8,13 +8,16 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 let sel = 1;
 let mode = (sel == 1) ? 'environment' : 'user';
 
+//environment-->Trasera
+//user-->Frontal
+
 const constraints = {
     audio: false,
     video: {
         width: 640,
         height: 480,
         facingMode: {
-            exact: 'user'
+            exact: 'environment'
         }
     }
 };
@@ -39,5 +42,5 @@ init();
 // Dibuja la imagen
 var context = canvas.getContext('2d');
 snap.addEventListener("click", function () {
-    context.drawImage(video, 0, 0, 540, 580);
+    context.drawImage(video, 0, 0, 480, 640);
 });
