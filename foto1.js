@@ -9,7 +9,7 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 //1-->Trasera-->environment
 
 let sel = 1;
-const mode = (sel == 1) ? 'environment' : 'user';
+const mode = (sel === 1) ? 'environment' : 'user';
 
 const constraints = {
     audio: false,
