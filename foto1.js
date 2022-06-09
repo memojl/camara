@@ -8,7 +8,7 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 //0-->Frontal-->user
 //1-->Trasera-->environment
 
-let sel = 1;
+let sel = 0;
 const mode = (sel === 1) ? 'environment' : 'user';
 
 const constraints = {
