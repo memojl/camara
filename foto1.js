@@ -7,15 +7,14 @@ const errorMsgElement = document.querySelector('span#errorMsg');
 
 //0-->Frontal-->user
 //1-->Trasera-->environment
-
 let sel = 0;
 const mode = (sel === 1) ? 'environment' : 'user';
 
 const constraints = {
     audio: false,
     video: {
-        width: 640,
-        height: 480,
+        width: 480,
+        height: 640,
         facingMode: {
             exact: mode
         }
