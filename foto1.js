@@ -1,7 +1,7 @@
 'use strict';
 
 const video = document.getElementById('video');
-const snap = document.getElementById("snap");
+const capture = document.getElementById("capture");
 const canvas = document.getElementById('canvas');
 const errorMsgElement = document.querySelector('span#errorMsg');
 
@@ -13,33 +13,38 @@ const mode = (sel === 1) ? 'environment' : 'user';
 const constraints = {
     audio: false,
     video: {
-        width: 640,
-        height: 480,
+        width: 200,
+        height: 300,
         facingMode: {
             exact: mode
-        }
+        },
+        aspectRatio: 16/9 //Position
     }
 };
 
 // Acceso a la webcam
-async function init() {
+async function webCam() {
     try {
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        handleSuccess(stream);
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);//console.log(stream);
+        window.stream = stream;
+        video.srcObject = stream;
+        //video.play();
     } catch (e) {
         let msg = `navigator.getUserMedia error:${e.toString()}`; console.log(msg);
         //errorMsgElement.innerHTML = msg;
     }
 }
 // Correcto!
-function handleSuccess(stream) {
+/*function handleSuccess(stream) {
     window.stream = stream;
     video.srcObject = stream;
-}
-// Load init
-init();
+}*/
+// Load webCam
+webCam();
 // Dibuja la imagen
 var context = canvas.getContext('2d');
-snap.addEventListener("click", function () {
+capture.addEventListener("click", function () {
     context.drawImage(video, 0, 0, 480, 640);
+    var data = canvas.toDataURL('image/png');
+    console.log(data);
 });
